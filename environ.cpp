@@ -4,22 +4,22 @@
 //=============================================================================
 //HEADER IMPLEMENTED
 //=============================================================================
-/*class environ{
-	private:
-		double accel[3];
-		vector<plane> bounds;
-	public:
-		void addBound(plane);
-		void clearBounds();
-		void setAccelX(double);
-		void setAccelY(double);
-		void setAccelZ(double);
-		double getAX();
-		double getAY();
-		double getAZ();
-		int getBoundNum();
-		plane getBound(int);
-}*/
+/*
+ *class environ{
+ *      private:
+ *              ot accel;
+ *              vector<plane> bounds;
+ *      public:
+ *              void addBound(plane);
+ *              void clearBounds();
+ *              void setAccel(ot);
+ *              double getAccel();
+ *              int getBoundNum();
+ *              plane getBound(int);
+ *}
+ */
+
+#include "environ.h"
 
 void environ::addBound(plane n_plane){
 	bounds.push_back(n_plane);
@@ -27,14 +27,10 @@ void environ::addBound(plane n_plane){
 
 void environ::clearBounds(){ bounds.clear(); }
 
-void environ::setAccelX(double x){ accel[0] = x; }
-void environ::setAccelY(double x){ accel[1] = x; }
-void environ::setAccelZ(double x){ accel[2] = x; }
+void environ::setAccel(ot x){ memcpy(x, accel, sizeof(ot)); }
 
-double environ::getAX(){ return accel[0]; };
-double environ::getAY(){ return accel[1]; };
-double environ::getAZ(){ return accel[2]; };
+double environ::getAccel(){ return new ot(accel.geta(), accel.getb(), accel.getc()); };
 
 int environ::getBoundNum(){ return bounds.size(); }
 
-plane getBound(int num){ return bounds[num]; }
+plane environ::getBound(int num){ return bounds[num]; }
