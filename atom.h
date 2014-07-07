@@ -12,5 +12,8 @@ class atom{
 		atom(int, int, int);
 		dist(ot);
 		ot loc();
+//---- @interface section ----
 		int element();
 		int charge();
+		atom* getBonds(int);
+		
